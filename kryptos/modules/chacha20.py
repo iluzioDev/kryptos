@@ -10,7 +10,7 @@ Created on Thu May 25 2023
 @description: ChaCha20 cipher
 """
 import simple_chalk as chalk
-from .utils import split_by, parseHex, bitwise_shift, truncate
+from .utils import split_by, parse_hex, bitwise_shift, truncate
 from .cipher import Cipher
 
 class ChaCha20(Cipher):
@@ -23,7 +23,7 @@ class ChaCha20(Cipher):
   performance than Salsa20.
   """
   ROUNDS = 10
-  CONSTANT = split_by(parseHex('61707865:3320646E:79622D32:6B206574'), 8)
+  CONSTANT = split_by(parse_hex('61707865:3320646E:79622D32:6B206574'), 8)
   BITS = 32
   HEX = int(BITS / 4)
   WORDS = 16
@@ -35,17 +35,13 @@ class ChaCha20(Cipher):
     return
   
   def __quarter_round(self, a, b, c, d):
-    try:
-      a = truncate(a + b, self.HEX)
-      d = bitwise_shift(d ^ a, 16, self.BITS, self.HEX)
-      c = truncate(c + d, self.HEX)
-      b = bitwise_shift(b ^ c, 12, self.BITS, self.HEX)
-      a = truncate(a + b, self.HEX)
-      d = bitwise_shift(d ^ a, 8, self.BITS, self.HEX)
-      c = truncate(c + d, self.HEX)
-      b = bitwise_shift(b ^ c, 7, self.BITS, self.HEX)
-      
-      return a, b, c, d
-    except ValueError as exception:
-      raise exception
+    a = truncate(a + b, self.HEX)
+    d = bitwise_shift(d ^ a, 16, self.BITS, self.HEX)
+    c = truncate(c + d, self.HEX)
+    b = bitwise_shift(b ^ c, 12, self.BITS, self.HEX)
+    a = truncate(a + b, self.HEX)
+    d = bitwise_shift(d ^ a, 8, self.BITS, self.HEX)
+    c = truncate(c + d, self.HEX)
+    b = bitwise_shift(b ^ c, 7, self.BITS, self.HEX)
     
+    return a, b, c, d

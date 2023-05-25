@@ -1,4 +1,6 @@
-def parseHex(number, n = 0):
+value_error = ' must be a positive integer!'
+
+def parse_hex(number, n = 0):
   """
   Convert a number or a string to its hexadecimal representation.
 
@@ -14,7 +16,7 @@ def parseHex(number, n = 0):
     str: The converted number or string.
   """
   if n < 0:
-    raise ValueError('n must be a positive integer!')
+    raise ValueError(n + value_error)
   # Convert to string and remove spaces and colons
   number = str(number)
   if number.isnumeric():
@@ -46,11 +48,11 @@ def split_by(element, n):
     list: A list of n-sized chunks of the element.
   """
   if n < 1:
-    raise ValueError('n must be a positive integer!')
+    raise ValueError(n + value_error)
   if n > len(element):
-    raise ValueError('n must be less than the element length!')
+    raise ValueError(n + ' must be less than the element length!')
   if len(element) % n != 0:
-    raise ValueError('String length is not a multiple of n!')
+    raise ValueError('String length is not a multiple of ' + n)
   return [element[i:i + n] for i in range(0, len(element), n)]
 
 def split_words(element):
@@ -97,7 +99,7 @@ def bitwise_shift(number, n, m, hex_digits):
     int: The shifted number.
   """
   if n < 0:
-    raise ValueError('n must be a positive integer!')
+    raise ValueError(n + value_error)
   if n > m:
-    raise ValueError('n must be less than the number of bits!')
+    raise ValueError(n + ' must be less than the number of bits!')
   return (truncate(number << n, hex_digits)) | (number >> (m - n))
