@@ -24,8 +24,8 @@ def parseHex(number, n = 0):
   if number[0:2] == '0X':
     number = number[2:]
   # Check if the string is a valid hexadecimal number
-  for i in enumerate(number):
-    if number[i] not in '0123456789ABCDEF':
+  for digit in number:
+    if digit not in '0123456789ABCDEF':
       raise ValueError('Invalid hexadecimal number!')
   return number.zfill(n)
 
