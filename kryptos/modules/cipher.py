@@ -22,16 +22,6 @@ class Cipher(metaclass = Singleton):
     Constructor of the class
     """
     self._debug = False
-    
-  def encrypt(self, *args):
-    """
-    Encrypts a message
-    """
-    
-  def decrypt(self, *args):
-    """
-    Decrypts a message
-    """
   
   def enable_debug(self):
     """

@@ -12,6 +12,7 @@ Created on Wed May 24 2023
 """
 import unittest
 from kryptos.modules.vigenere import Vigenere
+from kryptos.modules.chacha20 import ChaCha20
 
 class TestVigenereEncryption(unittest.TestCase):
   def test_1(self):
@@ -32,6 +33,10 @@ class TestVigenereDecryption(unittest.TestCase):
     self.assertEqual(Vigenere().decrypt("RIAYY", "Link"), "GANON")
   def test_4(self):
     self.assertEqual(Vigenere().decrypt("RIñYY", "Link"), "GAñON")
+
+#class TestChaCha20Encryption(unittest.TestCase):
+#  def test_1(self):
+#    self.assertEqual()
 
 if __name__ == '__main__':
     unittest.main()
