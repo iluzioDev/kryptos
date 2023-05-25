@@ -32,11 +32,6 @@ class Cipher(metaclass = Singleton):
     """
     Decrypts a message
     """
-    
-  def __crypt(self, *args):
-    """
-    Crypts a message
-    """
   
   def enable_debug(self):
     """
