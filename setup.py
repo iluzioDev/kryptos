@@ -8,7 +8,9 @@ setup(
     author_email='luischinearangel@gmail.com',
     license='MIT',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'coverage==5.5',
+      ],
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.8',
