@@ -15,19 +15,23 @@ from kryptos.modules.vigenere import Vigenere
 
 class TestVigenereEncryption(unittest.TestCase):
   def test_1(self):
-    self.assertEqual(Vigenere.encrypt("hello", "key"), "RIJVS")
+    self.assertEqual(Vigenere().encrypt("hello", "key"), "RIJVS")
   def test_2(self):
-    self.assertEqual(Vigenere.encrypt("Godskin Apostle", "Maliketh"), "SOOAUMG HBODBVI")
+    self.assertEqual(Vigenere().encrypt("Godskin Apostle", "Maliketh"), "SOOAUMG HBODBVI")
   def test_3(self):
-    self.assertEqual(Vigenere.encrypt("Ganon", "Link"), "RIAYY")
+    self.assertEqual(Vigenere().encrypt("Ganon", "Link"), "RIAYY")
+  def test_4(self):
+    self.assertEqual(Vigenere().encrypt("Gañon", "Link"), "RIñYY")
 
 class TestVigenereDecryption(unittest.TestCase):
   def test_1(self):
-    self.assertEqual(Vigenere.decrypt("RIJVS", "key"), "HELLO")
+    self.assertEqual(Vigenere().decrypt("RIJVS", "key"), "HELLO")
   def test_2(self):
-    self.assertEqual(Vigenere.decrypt("SOOAUMG HBODBVI", "Maliketh"), "GODSKIN APOSTLE")
+    self.assertEqual(Vigenere().decrypt("SOOAUMG HBODBVI", "Maliketh"), "GODSKIN APOSTLE")
   def test_3(self):
-    self.assertEqual(Vigenere.decrypt("RIAYY", "Link"), "GANON")
+    self.assertEqual(Vigenere().decrypt("RIAYY", "Link"), "GANON")
+  def test_4(self):
+    self.assertEqual(Vigenere().decrypt("RIñYY", "Link"), "GAñON")
 
 if __name__ == '__main__':
     unittest.main()

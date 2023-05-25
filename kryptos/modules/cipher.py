@@ -9,26 +9,38 @@ Created on Wed May 24 2023
 
 @description: Base cipher
 """
-class Cipher:
+from .singleton import Singleton
+
+class Cipher(metaclass = Singleton):
   """
   Base cipher class that defines the methods that every complex cipher must have
   """
   ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   
-  @staticmethod
-  def encrypt():
+  def __init__(self):
+    """
+    Constructor of the class
+    """
+    self._debug = False
+    
+  def encrypt(self, *args):
     """
     Encrypts a message
     """
     
-  @staticmethod
-  def decrypt():
+  def decrypt(self, *args):
     """
     Decrypts a message
     """
     
-  @staticmethod
-  def __crypt():
+  def __crypt(self, *args):
     """
     Crypts a message
     """
+  
+  def enable_debug(self):
+    """
+    Enables the test mode for debugging purposes
+    """
+    self._debug = True
+    return self._debug

@@ -3,15 +3,18 @@ source = kryptos
 
 [report]
 omit =
-    */site-packages/*
-    */tests/*
-    */__init__.py
-    */__pycache__/*
+  */site-packages/*
+  */tests/*
+  */__init__.py
+  */__pycache__/*
 
 exclude_lines =
-    pragma: no cover
-    raise NotImplementedError
-    if __name__ == .__main__.:
+  raise NotImplementedError
+  if __name__ == .__main__.:
+  def __repr__
+  def enable_debug
+  if self._debug:
+  if settings.DEBUG
 
 [html]
 directory = coverage_html_report
