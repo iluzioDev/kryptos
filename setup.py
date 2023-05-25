@@ -10,6 +10,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'coverage==5.5',
+        'coveralls==3.3.1',
       ],
     classifiers=[
         'License :: OSI Approved :: MIT License',
